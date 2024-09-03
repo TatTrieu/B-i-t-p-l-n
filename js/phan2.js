@@ -38,15 +38,31 @@ window.addEventListener("load",function(){
 
 
     // tạo danh sách phát
-    $(".addpls").click(function(){
+    $(".songs").on("click",".addpls",function(){
         $(".addplaylist").slideDown()
+        $(".song").removeClass("choiced")
+        $(this).closest(".song").addClass("choiced")
+    })
+
+    $(".addplaylist").on("click",".playlist-name h2",function(){
+        $(".music .playlistsong").eq($(this).index()).append(`
+            <div class="song">
+                <div class="img-song"><img src="${ $(".choiced img").attr("src")}" alt="gg"></div>
+                <div class="infosong">
+                    <h4>${ $(".choiced h4").text()}</h4>
+                    <p>${ $(".choiced p").text()}</p>
+                </div>
+            </div>
+            `)
+            $(".addplaylist").slideUp()
+            loadplaylist()
     })
 
 
     // chọn danh sách phát
-    let playlist=document.querySelectorAll(".playlist")
-    for(let pl of playlist)
-        $(pl).click(function(event){
+    // let playlist=document.querySelectorAll(".playlist")
+    // for(let pl of playlist)
+        $(".right").on("click",".playlist",function(event){
             if ($(event.target).closest(".playall,playshuffle").length === 0){
                 $(".playlistsong").slideUp(500)
                 let playlistsong=document.querySelectorAll(".playlistsong")
@@ -57,9 +73,9 @@ window.addEventListener("load",function(){
                         }) 
             }
            
-    })
+        })
     // phát tất cả
-    $(".playall").click(function(){
+    $(".right").on("click",".playall",function(){
         $(".playlistsong").slideUp(500)
         let playlistsong=document.querySelectorAll(".playlistsong")
             for(let pls of playlistsong)
@@ -73,7 +89,7 @@ window.addEventListener("load",function(){
                     
     })
     // phát ngẫu nhiên
-    $(".playshuffle").click(function(){
+    $(".right").on("click",".playshuffle",function(){
         $(".playlistsong").slideUp(500)
         let playlistsong=document.querySelectorAll(".playlistsong")
             for(let pls of playlistsong)
@@ -87,5 +103,48 @@ window.addEventListener("load",function(){
                 }
                     
     })
-    
+
+    $(".choice-playlist h1").click(function(){
+        $(".choice-playlist h1").removeClass("on")
+        $(this).addClass("on")
+    })
+    $("h1.propose-playlist").click(function(){
+        $("div.propose-playlist").slideDown()
+        $("div.my-playlist").slideUp()
+    })
+    $("h1.my-playlist").click(function(){
+        $("div.propose-playlist").slideUp()
+        $("div.my-playlist").slideDown()
+    })
+
+
+    $("#namepl").change(function(){
+        if($(this).val()!=""){
+            $("div.my-playlist").append(`
+                <div class="playlist">
+                    <div class="img-playlist">
+                        <img src="img/playlist.png" alt="">
+                    </div>
+                    <div class="info-playlist">
+                        <h1>${$(this).val()}</h1>
+
+                    </div>
+                    <div class="playlist-bt flex">
+                        <div></div>
+                        <button class="playall"><img src="https://img.icons8.com/ios-filled/50/FFFFFF/play--v1.png" alt="">Phát tất cả</button>
+                        <button class="playshuffle"><img src="https://img.icons8.com/?size=100&id=GsnQu489OK16&format=png&color=FFFFFF" alt="">Trộn bài</button>
+                        <div></div>
+                    </div>
+                </div>
+                `)
+            $(".music").prepend(`
+                <div class="songs playlistsong">
+                    <h1>${$(this).val()}</h1>
+                </div>    
+                `)
+            $(".playlist-name").append(`
+                <h2>${$(this).val()}</h2>
+                `)
+        }
+    })
 })

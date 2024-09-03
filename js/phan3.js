@@ -1,9 +1,14 @@
 window.addEventListener("load",function(){
-    var x=1100
+    var scroll=$(".img-top img").width()
+    var i=1
     this.setInterval(function(){
-        $(".top").animate({ scrollLeft: `+=${x}px` }, 3000)
-        x=x*-1
-    },10000)
+        i++
+        $(".img-top").animate({ scrollLeft: `+=${scroll}` }, 2000)
+        if(i==$(".img-top img").length){
+            i=1
+            scroll=scroll*-1
+        }
+    },4001)
     $(".scrollleft,.scrollright").remove()
     var Audio = document.getElementById("audio");
     function loadmusic(){

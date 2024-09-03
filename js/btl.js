@@ -26,7 +26,6 @@ window.onload=function(){
         $(".addpls").hide(300)
     })
     $(".play-left").on("click",".menu-song",function(){
-        $(".addpls").hide(300)
         $(this).closest(".cd_infosong").siblings(".addpls").toggle(300)
     })
     $(".left").on("mouseleave",".play-left",function(){
@@ -368,7 +367,7 @@ window.onload=function(){
 
 
     // chọn bài hát
-    $(".songs").on("click",".song",function(event){
+    $(".right").on("click",".song",function(event){
         if ($(event.target).closest('.menu-song,.addpls').length === 0) {
             next(this)
         }

@@ -288,17 +288,7 @@ margin: auto;
 
 
 /* thêm vào play list */
-.addplaylist{
-    display: none;
-    z-index: 999;
-    border-radius: 20px;
-    background-color: #423f3f;
-    position: fixed;
-    width: 400px;
-    height: 600px;
-    left: calc(50% - 200px);
-    top: calc(50% - 300px);
-}
+
 
 .menu-song img{
     vertical-align: middle;
