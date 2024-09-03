@@ -1,0 +1,68 @@
+
+.library{
+    background-color: #413f3f;
+}
+
+.top{
+    overflow-x: auto;
+    height: 300px;
+    margin: 50px 0 50px 0;
+    width: 100%;
+   
+}
+.img-top{
+    margin: 50px 0 50px 0;
+    height: 200px;
+}
+.img-top img{
+    height: 200px;
+    /* padding: 0 30px 0 30px; */
+    transition: transform 1s;
+}
+
+/* .img-top img:nth-child(2){
+    height: 300px;
+} */
+.top::-webkit-scrollbar{
+    display: none;
+}
+.songs:nth-child(1){
+    display: block;
+}
+.songs{
+    width: 100% ;
+}
+.songs .song{
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color:  #6c6767;
+    width: 100% ;
+    height: 100px;
+}
+.songs .song .img-song{
+    margin: 10px;
+    height: calc(100% - 20px);
+}
+.songs .song .img-song img{
+    height: 100%;
+}
+.songs .infosong h4,.songs .infosong p{
+    padding: 5px 0 5px 0;
+}
+.menu-song{
+    position: absolute;
+    top: calc(50% - 15px);
+    right: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+}
+.addpls{
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    right:30px;
+    bottom: 60px;
+} 
