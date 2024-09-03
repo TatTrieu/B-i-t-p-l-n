@@ -14,7 +14,7 @@ window.addEventListener("load",function(){
     function next (obj){
         $(".song").attr("playing","false")
         $(obj).attr("playing","true")
-        var x=`../audio/${$(obj).find("h4").text()}_${$(obj).find("p").text()}.mp3`
+        var x=`audio/${$(obj).find("h4").text()}_${$(obj).find("p").text()}.mp3`
         $("#audio").attr("src",x)
         Audio.play()
         loadmusic()
